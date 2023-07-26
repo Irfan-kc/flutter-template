@@ -1,3 +1,5 @@
+// ignore_for_file: cast_from_null_always_fails
+
 import 'dart:async';
 
 import 'package:chopper/chopper.dart';
@@ -152,7 +154,9 @@ class AuthenticatorHelperJwt {
             override: true);
       },
       timeout: Duration(seconds: 30),
-    ).catchError((_) {}, test: (error) {
+    ).catchError((_) {
+      return _;
+    }, test: (error) {
       Log.e('Authenticator (response) - Exception thrown: $error');
       return false;
     }); //lock end
@@ -217,7 +221,9 @@ class AuthenticatorHelperJwt {
         );
       },
       timeout: Duration(seconds: TIMEOUT),
-    ).catchError((_) {}, test: (error) {
+    ).catchError((_) {
+      return _;
+    }, test: (error) {
       Log.e('Authenticator (request) - Exception thrown: $error');
       return false;
     });
