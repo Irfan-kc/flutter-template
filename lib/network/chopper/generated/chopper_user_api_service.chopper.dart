@@ -18,9 +18,9 @@ class _$ChopperUserApiService extends ChopperUserApiService {
 
   @override
   Future<Response<dynamic>> signUp(User user) {
-    final $url = '/user/register';
+    final Uri $url = Uri.parse('/user/register');
     final $body = user;
-    final $request = Request(
+    final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
@@ -34,12 +34,12 @@ class _$ChopperUserApiService extends ChopperUserApiService {
     String username,
     String password,
   ) {
-    final $url = '/user/login';
+    final Uri $url = Uri.parse('/user/login');
     final $body = <String, dynamic>{
       'username': username,
       'password': password,
     };
-    final $request = Request(
+    final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
@@ -53,12 +53,11 @@ class _$ChopperUserApiService extends ChopperUserApiService {
 
   @override
   Future<Response<User>> getUserProfile({String? authHeader}) {
-    final $url = '/user';
-    final $headers = {
+    final Uri $url = Uri.parse('/user');
+    final Map<String, String> $headers = {
       if (authHeader != null) 'Authorization': authHeader,
     };
-
-    final $request = Request(
+    final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
@@ -69,9 +68,9 @@ class _$ChopperUserApiService extends ChopperUserApiService {
 
   @override
   Future<Response<User>> updateUserProfile(User user) {
-    final $url = '/user';
+    final Uri $url = Uri.parse('/user');
     final $body = user;
-    final $request = Request(
+    final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
@@ -82,9 +81,9 @@ class _$ChopperUserApiService extends ChopperUserApiService {
 
   @override
   Future<Response<void>> resetPassword(String email) {
-    final $url = '/user/reset-password';
+    final Uri $url = Uri.parse('/user/reset-password');
     final $body = email;
-    final $request = Request(
+    final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
@@ -95,9 +94,9 @@ class _$ChopperUserApiService extends ChopperUserApiService {
 
   @override
   Future<Response<dynamic>> addNotificationsToken(String token) {
-    final $url = '/user/notifications-token';
+    final Uri $url = Uri.parse('/user/notifications-token');
     final $body = token;
-    final $request = Request(
+    final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
@@ -108,8 +107,8 @@ class _$ChopperUserApiService extends ChopperUserApiService {
 
   @override
   Future<Response<void>> logout() {
-    final $url = '/user/logout';
-    final $request = Request(
+    final Uri $url = Uri.parse('/user/logout');
+    final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
@@ -119,8 +118,8 @@ class _$ChopperUserApiService extends ChopperUserApiService {
 
   @override
   Future<Response<void>> deactivate() {
-    final $url = '/user';
-    final $request = Request(
+    final Uri $url = Uri.parse('/user');
+    final Request $request = Request(
       'DELETE',
       $url,
       client.baseUrl,

@@ -1,7 +1,6 @@
 import 'package:chopper/chopper.dart';
 import 'package:flutter_template/model/task/task.dart';
 import 'package:flutter_template/model/task/task_status.dart';
-import 'package:flutter_template/model/user/credentials.dart';
 import 'package:flutter_template/model/user/user_credentials.dart';
 import 'package:flutter_template/network/chopper/authenticator/authenticator_helper_jwt.dart';
 import 'package:flutter_template/network/user_auth_api_service.dart';
@@ -82,7 +81,8 @@ void main() {
       // assert
       expect(
           authenticatorHelperJwt.interceptResponse(
-              Request('GET', 'task/2', 'http://example.com',
+              Request(
+                  'GET', Uri.parse('task/2'), Uri.parse('http://example.com'),
                   headers: {authHeaderKey: 'Bearer '}),
               validResponse),
           throwsA(isInstanceOf<UnauthorizedUserException>()));
@@ -92,9 +92,11 @@ void main() {
       // assert
       expect(
           authenticatorHelperJwt.interceptResponse(
-              Request('GET', 'task/2', 'http://example.com', headers: {
-                authHeaderKey: 'Bearer ' + NetworkTestHelper.expiredToken
-              }),
+              Request(
+                  'GET', Uri.parse('task/2'), Uri.parse('http://example.com'),
+                  headers: {
+                    authHeaderKey: 'Bearer ' + NetworkTestHelper.expiredToken
+                  }),
               validResponse),
           throwsA(isInstanceOf<UnauthorizedUserException>()));
     });
@@ -105,9 +107,10 @@ void main() {
 
       // act
       Request? actualRequest = await authenticatorHelperJwt.interceptResponse(
-          Request('GET', 'task/2', 'http://example.com', headers: {
-            authHeaderKey: 'Bearer ' + NetworkTestHelper.expiredToken
-          }),
+          Request('GET', Uri.parse('task/2'), Uri.parse('http://example.com'),
+              headers: {
+                authHeaderKey: 'Bearer ' + NetworkTestHelper.expiredToken
+              }),
           validResponse);
 
       // assert
@@ -119,7 +122,8 @@ void main() {
   group('interceptRequest', () {
     test('interceptRequest, no token', () async {
       // arrange
-      Request expected = Request('GET', 'task/2', 'http://example.com',
+      Request expected = Request(
+          'GET', Uri.parse('task/2'), Uri.parse('http://example.com'),
           headers: {authHeaderKey: 'Bearer ' + NetworkTestHelper.expiredToken});
 
       // act
@@ -134,7 +138,8 @@ void main() {
       when(mockUserAuthApiService.refreshToken(any)).thenAnswer(
           (_) async => Future.value(NetworkTestHelper.validCredentials));
       storage.save(NetworkTestHelper.expiredUserCredentials);
-      Request expected = Request('GET', 'task/2', 'http://example.com',
+      Request expected = Request(
+          'GET', Uri.parse('task/2'), Uri.parse('http://example.com'),
           headers: {authHeaderKey: 'Bearer ' + NetworkTestHelper.expiredToken});
 
       // act
@@ -149,7 +154,8 @@ void main() {
     test('interceptRequest, expired token, valid token stored', () async {
       // arrange
       storage.save(NetworkTestHelper.validUserCredentials);
-      Request expected = Request('GET', 'task/2', 'http://example.com',
+      Request expected = Request(
+          'GET', Uri.parse('task/2'), Uri.parse('http://example.com'),
           headers: {authHeaderKey: 'Bearer ' + NetworkTestHelper.expiredToken});
 
       // act

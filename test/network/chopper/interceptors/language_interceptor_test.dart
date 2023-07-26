@@ -22,7 +22,8 @@ void main() {
   group('onRequest', () {
     test('onRequest, no locale stored', () async {
       // assert
-      Request expected = Request('GET', 'task/2', 'http://example.com',
+      Request expected = Request(
+          'GET', Uri.parse('task/2'), Uri.parse('http://example.com'),
           headers: {authHeaderKey: 'Bearer ' + NetworkTestHelper.validToken});
 
       // act
@@ -37,7 +38,8 @@ void main() {
       // assert
       String expectedLocale = 'en-expected';
       storage.save(expectedLocale);
-      Request expected = Request('GET', 'task/2', 'http://example.com',
+      Request expected = Request(
+          'GET', Uri.parse('task/2'), Uri.parse('http://example.com'),
           headers: {authHeaderKey: 'Bearer ' + NetworkTestHelper.validToken});
 
       // act

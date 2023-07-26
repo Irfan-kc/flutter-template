@@ -18,8 +18,8 @@ class _$ChopperTasksApiService extends ChopperTasksApiService {
 
   @override
   Future<Response<List<TaskGroup>>> getTaskGroups() {
-    final $url = '/task-groups';
-    final $request = Request(
+    final Uri $url = Uri.parse('/task-groups');
+    final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
@@ -29,8 +29,8 @@ class _$ChopperTasksApiService extends ChopperTasksApiService {
 
   @override
   Future<Response<TaskGroup>> getTaskGroup(String id) {
-    final $url = '/task-groups/${id}';
-    final $request = Request(
+    final Uri $url = Uri.parse('/task-groups/${id}');
+    final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
@@ -40,8 +40,8 @@ class _$ChopperTasksApiService extends ChopperTasksApiService {
 
   @override
   Future<Response<Task>> getTask(String taskId) {
-    final $url = '/tasks/${taskId}';
-    final $request = Request(
+    final Uri $url = Uri.parse('/tasks/${taskId}');
+    final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
@@ -51,8 +51,8 @@ class _$ChopperTasksApiService extends ChopperTasksApiService {
 
   @override
   Future<Response<List<Task>>> getTasks(String taskGroupId) {
-    final $url = '/task-groups/${taskGroupId}/tasks';
-    final $request = Request(
+    final Uri $url = Uri.parse('/task-groups/${taskGroupId}/tasks');
+    final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
@@ -62,8 +62,8 @@ class _$ChopperTasksApiService extends ChopperTasksApiService {
 
   @override
   Future<Response<dynamic>> reopenTask(String id) {
-    final $url = '/tasks/${id}';
-    final $request = Request(
+    final Uri $url = Uri.parse('/tasks/${id}');
+    final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
@@ -73,8 +73,8 @@ class _$ChopperTasksApiService extends ChopperTasksApiService {
 
   @override
   Future<Response<dynamic>> completeTask(String id) {
-    final $url = '/tasks/${id}';
-    final $request = Request(
+    final Uri $url = Uri.parse('/tasks/${id}');
+    final Request $request = Request(
       'PUT',
       $url,
       client.baseUrl,
@@ -84,9 +84,9 @@ class _$ChopperTasksApiService extends ChopperTasksApiService {
 
   @override
   Future<Response<Task>> createTask(CreateTask createTask) {
-    final $url = '/tasks';
+    final Uri $url = Uri.parse('/tasks');
     final $body = createTask;
-    final $request = Request(
+    final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
@@ -97,9 +97,9 @@ class _$ChopperTasksApiService extends ChopperTasksApiService {
 
   @override
   Future<Response<TaskGroup>> createTaskGroup(CreateTaskGroup ctg) {
-    final $url = '/task-groups';
+    final Uri $url = Uri.parse('/task-groups');
     final $body = ctg;
-    final $request = Request(
+    final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
@@ -110,9 +110,9 @@ class _$ChopperTasksApiService extends ChopperTasksApiService {
 
   @override
   Future<Response<TaskGroup>> updateTaskGroup(TaskGroup tg) {
-    final $url = '/task-groups/update';
+    final Uri $url = Uri.parse('/task-groups/update');
     final $body = tg;
-    final $request = Request(
+    final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
@@ -123,8 +123,8 @@ class _$ChopperTasksApiService extends ChopperTasksApiService {
 
   @override
   Future<Response<dynamic>> deleteAllTasks() {
-    final $url = '/tasks';
-    final $request = Request(
+    final Uri $url = Uri.parse('/tasks');
+    final Request $request = Request(
       'DELETE',
       $url,
       client.baseUrl,
@@ -134,8 +134,8 @@ class _$ChopperTasksApiService extends ChopperTasksApiService {
 
   @override
   Future<Response<dynamic>> deleteAllTaskGroups() {
-    final $url = '/task-groups';
-    final $request = Request(
+    final Uri $url = Uri.parse('/task-groups');
+    final Request $request = Request(
       'DELETE',
       $url,
       client.baseUrl,

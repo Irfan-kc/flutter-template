@@ -2,8 +2,6 @@ import 'package:chopper/chopper.dart';
 import 'package:flutter_template/feature/force_update/force_update_handler.dart';
 import 'package:flutter_template/model/user/user_credentials.dart';
 import 'package:flutter_template/network/chopper/authenticator/authenticator_helper_jwt.dart';
-import 'package:flutter_template/network/chopper/generated/chopper_tasks_api_service.dart';
-import 'package:flutter_template/network/chopper/generated/chopper_user_api_service.dart';
 import 'package:flutter_template/network/chopper/generated/chopper_user_auth_api_service.dart';
 import 'package:flutter_template/network/chopper/interceptors/error_interceptor.dart';
 import 'package:flutter_template/network/tasks_api_service.dart';
@@ -17,6 +15,8 @@ import 'package:single_item_storage/stub_storage.dart';
 
 import 'authenticator/refresh_token_authenticator.dart';
 import 'converters/json_type_converter_provider.dart';
+import 'generated/chopper_tasks_api_service.dart';
+import 'generated/chopper_user_api_service.dart';
 import 'interceptors/auth_interceptor.dart';
 import 'interceptors/http_logger_interceptor.dart';
 import 'interceptors/language_interceptor.dart';
@@ -43,7 +43,7 @@ class HttpApiServiceProvider {
     forceUpdateHandler ??= ForceUpdateHandler();
 
     ChopperClient unauthorizedClient = ChopperClient(
-      baseUrl: baseUrl,
+      baseUrl: Uri.parse(baseUrl),
       client: httpClient,
       services: [
         ChopperUserAuthApiService.create(),
@@ -72,7 +72,7 @@ class HttpApiServiceProvider {
     );
 
     ChopperClient defaultClient = ChopperClient(
-      baseUrl: baseUrl,
+      baseUrl: Uri.parse(baseUrl),
       client: httpClient,
       services: [
         ChopperUserApiService.create(),

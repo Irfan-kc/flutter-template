@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TransparentAppBar extends StatelessWidget with PreferredSizeWidget {
-  @override
+class TransparentAppBar extends StatelessWidget {
   final Size preferredSize;
   final Widget? title;
   final Widget? action;
@@ -27,7 +26,6 @@ class TransparentAppBar extends StatelessWidget with PreferredSizeWidget {
       centerTitle: true,
       title: title,
       backgroundColor: Colors.transparent,
-      brightness: Brightness.light,
       elevation: 0,
       iconTheme: IconThemeData(
         color: Colors.black, //change your color here

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_template/di/service_locator.dart';
 
 void debugOverlay(BuildContext context) {
-  Overlay.of(context)?.insert(
+  Overlay.of(context).insert(
     OverlayEntry(builder: (context) {
       var safePadding = MediaQuery.of(context).padding.bottom;
       final size = MediaQuery.of(context).size;
@@ -12,7 +12,7 @@ void debugOverlay(BuildContext context) {
               text: TextSpan(
                   text:
                       serviceLocator.get<String>(instanceName: buildVersionKey),
-                  style: Theme.of(context).textTheme.caption),
+                  style: Theme.of(context).textTheme.bodySmall),
               maxLines: 1,
               textScaleFactor: MediaQuery.of(context).textScaleFactor,
               textDirection: TextDirection.ltr)
@@ -26,7 +26,7 @@ void debugOverlay(BuildContext context) {
         child: IgnorePointer(
           child: Text(
             serviceLocator.get<String>(instanceName: buildVersionKey),
-            style: Theme.of(context).textTheme.caption,
+            style: Theme.of(context).textTheme.bodySmall,
           ),
         ),
       );

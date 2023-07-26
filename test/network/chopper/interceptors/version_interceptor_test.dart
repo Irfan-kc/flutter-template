@@ -17,7 +17,7 @@ void main() {
     test('onRequest, no packageInfo', () async {
       // assert
       versionInterceptor = VersionInterceptor();
-      Request expected = Request('GET', 'task/2', 'http://example.com',
+      Request expected = Request('GET', Uri.parse('task/2'),Uri.parse( 'http://example.com'),
           headers: {authHeaderKey: 'Bearer ' + NetworkTestHelper.validToken});
 
       // act
@@ -33,7 +33,7 @@ void main() {
       MockPackageInfo mockPackageInfo = MockPackageInfo();
       versionInterceptor = VersionInterceptor(mockPackageInfo);
       when(mockPackageInfo.version).thenReturn('1-2');
-      Request expected = Request('GET', 'task/2', 'http://example.com',
+      Request expected = Request('GET',  Uri.parse('task/2'),Uri.parse( 'http://example.com'),
           headers: {authHeaderKey: 'Bearer ' + NetworkTestHelper.validToken});
 
       // act

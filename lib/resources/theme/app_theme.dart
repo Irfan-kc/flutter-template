@@ -10,22 +10,21 @@ extension on ThemeData {
 ThemeData themeLight() => ThemeData(
     brightness: Brightness.light,
     primaryColor: ColorPalette.primaryL,
-    accentColor: ColorPalette.accentL,
+    // accentColor: ColorPalette.accentL,
     scaffoldBackgroundColor: ColorPalette.backgroundGray,
     cardColor: ColorPalette.white,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: TextButton.styleFrom(
-        primary: ColorPalette.black,
-        backgroundColor: ColorPalette.accentL,
+        foregroundColor: ColorPalette.black, backgroundColor: ColorPalette.accentL,
       ),
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        primary: ColorPalette.accentL,
+        foregroundColor: ColorPalette.accentL,
       ),
     ),
     textTheme: TextTheme(
-      subtitle1: TextStyle(
+      titleMedium: TextStyle(
         fontWeight: FontWeight.bold,
         color: ColorPalette.textGray,
       ),
@@ -34,23 +33,21 @@ ThemeData themeLight() => ThemeData(
 ThemeData themeDark() => ThemeData(
     brightness: Brightness.dark,
     primaryColor: ColorPalette.primaryD,
-    accentColor: ColorPalette.accentD,
     scaffoldBackgroundColor: ColorPalette.primaryLightD,
     cardColor: ColorPalette.primaryDisabledD,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: TextButton.styleFrom(
-        primary: ColorPalette.black,
-        backgroundColor: ColorPalette.accentD,
+        foregroundColor: ColorPalette.black, backgroundColor: ColorPalette.accentD,
       ),
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        primary: ColorPalette.accentD,
+        foregroundColor: ColorPalette.accentD,
       ),
     ),
     textTheme: TextTheme(
-      subtitle1: TextStyle(
+      titleMedium: TextStyle(
         fontWeight: FontWeight.bold,
         color: ColorPalette.white,
       ),
-    )).setCommonThemeElements();
+    ), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: ColorPalette.accentD)).setCommonThemeElements();

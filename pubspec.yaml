@@ -3,7 +3,7 @@ description: A Flutter template project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -27,7 +27,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl: ^0.17.0
+  intl: any
   cupertino_icons: ^1.0.2
 
   # dart
@@ -39,7 +39,7 @@ dependencies:
 
   # network
   http: ^0.13.1
-  chopper: ^4.0.0 #todo update go 6+
+  chopper: ^6.1.4 #todo update go 6+
   jwt_decoder: 2.0.1 # todo delete if JWT is not used
   connectivity: ^3.0.3
 
@@ -75,7 +75,7 @@ dependencies:
   pull_to_refresh: 2.0.0
 
   # notifications
-  awesome_notifications: ^0.7.2
+  awesome_notifications: any
 
 dev_dependencies:
   flutter_test:
@@ -83,7 +83,7 @@ dev_dependencies:
   flutter_driver:
     sdk: flutter
   build_runner: any
-  chopper_generator: ^4.0.0
+  chopper_generator: ^6.0.3
   json_serializable: ^6.0.1
   flutter_email_sender: ^5.0.0
   bloc_test: ^9.0.1
@@ -97,7 +97,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -107,7 +106,7 @@ flutter:
 
   # To add assets to your application, add an assets section:
   assets:
-#    - assets/images/
+    #    - assets/images/
     - assets/l10n/app_en.arb
     - assets/l10n/app_mk.arb
 

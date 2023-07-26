@@ -76,7 +76,7 @@ class LocalNotificationsManagerAwAdapter implements LocalNotificationsManager {
       debug: kDebugMode,
     );
 
-    _awNotification.setListeners(onActionReceivedMethod: onNotificationAction);
+    // _awNotification.setListeners(onActionReceivedMethod: onNotificationAction);
 
     isInitialized = true;
   }
@@ -184,9 +184,9 @@ class LocalNotificationsManagerAwAdapter implements LocalNotificationsManager {
               color: coreButton.color,
               showInCompactView: coreButton.showInCompactView ?? false,
               isDangerousOption: coreButton.isDangerousOption,
-              actionType: coreButton.shouldOpenApp
-                  ? ActionType.Default
-                  : ActionType.DismissAction,
+              // actionType: coreButton.shouldOpenApp
+              //     ? ActionType.Default
+              //     : ActionType.DismissAction,
             ))
         .toList();
   }

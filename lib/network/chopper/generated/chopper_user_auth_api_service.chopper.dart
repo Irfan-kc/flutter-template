@@ -18,9 +18,9 @@ class _$ChopperUserAuthApiService extends ChopperUserAuthApiService {
 
   @override
   Future<Response<Credentials>> refreshToken(String refreshToken) {
-    final $url = '/user/refresh-token';
+    final Uri $url = Uri.parse('/user/refresh-token');
     final $body = refreshToken;
-    final $request = Request(
+    final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
